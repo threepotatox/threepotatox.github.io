@@ -42,9 +42,32 @@ NameSilo 现在也是较为老牌的域名注册商之一了。
 
 可以说是行业老大，虽然第一年相对便宜，但续费价格偏高。
 
-## 将域名托管到 Cloudflare
+## NameSilo 购买域名图文步骤
 
-打开 [Cloudflare 面板](https://dash.cloudflare.com/)，添加域名后，并根据提示，修改域名注册商的解析服务器，将其指向 Cloudflare。这样才能使用 Cloudflare 提供的各种服务。之后，域名的续费在注册商，域名的管理在 Cloudflare。
+① 输入想要注册的域名，点击搜索
+![搜索域名](search-namesilo.png "搜索域名")
 
-如果是在 Cloudflare 注册购买的域名，应该不需要这个步骤。
+② 可以使用高级搜索功能，选择更多顶级域名查看
+![高级搜索域名](advance-search-namesilo.png "高级搜索域名")
 
+高级搜索页面
+![高级搜索域名2](advance-search-namesilo2.png "高级搜索域名2")
+
+③ 查看域名列表，点击购物车图标添加到购物车，准备结算
+![域名列表](show-list-namesilo.png "域名列表")
+
+④ 进入购物车页面
+![购物车](cart-namesilo.png "购物车")
+
+可以切换购物车布局
+![购物车2](cart-advance-namesilo.png "购物车2")
+
+⑤ 支付页面，可以选择支付方式，如果是新用户第一次购买，可以添加优惠码
+![支付页面](pay-namesilo.png "支付页面")
+
+选择支付宝
+![支付宝](pay-alipay-namesilo.png "支付宝")
+
+⑥ 第一次购买后，如果出现域名快速设置页面可以先不用管（点击我的账号随时可以进入域名管理页面）；若需要验证邮箱或补全个人信息时，按照提示添加个人信息，如地址信息、联系方式等；
+
+⑦ 点击我的账号，可以进入域名管理页面
