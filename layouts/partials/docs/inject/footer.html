@@ -1,0 +1,36 @@
+<!-- custom start -->
+
+<!-- 
+  Image lightbox functionality: enabled by integrating "Fancybox" via "Markdown Render Hooks"
+  图片灯箱效果：通过 Markdown Render Hooks 集成 Fancybox
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.umd.min.js" integrity="sha512-VNk0UJk87TUyZyWXUFuTk6rUADFyTsVpVGaaFQQIgbEXAMAdGpYaFWmguyQzEQ2cAjCEJxR2C++nSm0r2kOsyA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.min.css" integrity="sha512-s4DOVHc73MjMnsueMjvJSnYucSU3E7WF0UVGRQFd/QDzeAx0D0BNuAX9fbZSLkrYW7V2Ly0/BKHSER04bCJgtQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script>
+  Fancybox.bind("[data-fancybox]", {
+  // Your custom options
+  Images: {
+    Panzoom: {
+      maxScale: 5,
+    },
+  },
+  Toolbar: {
+    display: {
+      left: ["infobar"],
+      middle: [
+      "zoomIn",
+      "zoomOut",
+      "toggle1to1",
+      "rotateCCW",
+      "rotateCW",
+      "flipX",
+      "flipY",
+      ],
+      right: ["slideshow", "thumbs", "download", "close"],
+    },
+  },
+});
+</script>
+
+<!-- custom end -->

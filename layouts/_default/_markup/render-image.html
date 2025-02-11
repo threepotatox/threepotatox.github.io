@@ -1,0 +1,15 @@
+<!-- custom start -->
+
+<!-- 
+  Image lightbox functionality: enabled by integrating "Fancybox" via "Markdown Render Hooks"
+  图片灯箱效果：通过 Markdown Render Hooks 集成 Fancybox
+-->
+<div class="post-img-view">
+
+  <a data-fancybox="gallery" href="{{ .Destination | safeURL }}" data-caption="{{ .Text }}" >
+      <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}"{{ end }} />
+  </a>
+  
+</div>
+
+<!-- custom end -->
