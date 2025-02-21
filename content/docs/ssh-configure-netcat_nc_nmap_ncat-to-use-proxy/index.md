@@ -39,7 +39,20 @@ weight = 13
 # SSH 配置文件路径
 # ~/.ssh/config
 
-# Host * 匹配所有主机名，用以设置全局默认值
+# 注：
+# SSH 客户端从上到下逐行读取配置文件，并根据定义的 Host 条件进行匹配
+# 特定的主机匹配应在文件开头给出，匹配条件越宽松越靠后
+
+# 匹配 github.com
+Host github.com
+    Hostname github.com
+    ProxyCommand nc -X 5 -x 127.0.0.1:10808 %h %p
+
+# 匹配所有以 .com 结尾的域名
+# Host *.com
+# ...
+
+# Host * 匹配所有主机名，可用以设置全局默认值
 # -X 5：SOCKS v5 代理
 # -x 127.0.0.1:10808：代理地址
 # 替换为自己的即可使用
@@ -47,11 +60,6 @@ Host *
     ProxyCommand nc -X 5 -x 127.0.0.1:10808 %h %p
 # 其他设置
     ServerAliveInterval 15
-
-# 匹配 github.com
-Host github.com
-    Hostname github.com
-    ProxyCommand nc -X 5 -x 127.0.0.1:10808 %h %p
 ```
 
 {{% /tab %}}
@@ -77,6 +85,12 @@ ssh -o "ProxyCommand nc -X 5 -x 127.0.0.1:10808 %h %p" -o "ServerAliveInterval 1
 
 {{% /tabs %}}
 
+> 注：
+>
+> SSH 客户端从上到下逐行读取配置文件，并根据定义的 Host 条件进行匹配
+>
+> 特定的主机匹配应在文件开头给出，匹配条件越宽松越靠后
+
 ### ssh 和 ncat 命令示例（需安装 Nmap/Ncat 相关工具）
 
 如下示例，若某些操作系统（Windows）安装 Nmap/Ncat 工具更方便， 可以用 ncat 命令代替 nc 命令：
@@ -90,7 +104,20 @@ ssh -o "ProxyCommand nc -X 5 -x 127.0.0.1:10808 %h %p" -o "ServerAliveInterval 1
 # SSH 配置文件路径
 # ~/.ssh/config
 
-# Host * 匹配所有主机名，用以设置全局默认值
+# 注：
+# SSH 客户端从上到下逐行读取配置文件，并根据定义的 Host 条件进行匹配
+# 特定的主机匹配应在文件开头给出，匹配条件越宽松越靠后
+
+# 匹配 github.com
+Host github.com
+    Hostname github.com
+    ProxyCommand ncat --proxy-type socks5 --proxy 127.0.0.1:10808 %h %p
+
+# 匹配所有以 .com 结尾的域名
+# Host *.com
+# ...
+
+# Host * 匹配所有主机名，可用以设置全局默认值
 # --proxy-type socks5：SOCKS v5 代理
 # --proxy 127.0.0.1:10808：代理地址
 # 替换为自己的即可使用
@@ -98,11 +125,6 @@ Host *
     ProxyCommand ncat --proxy-type socks5 --proxy 127.0.0.1:10808 %h %p
 # 其他设置
     ServerAliveInterval 15
-
-# 匹配 github.com
-Host github.com
-    Hostname github.com
-    ProxyCommand ncat --proxy-type socks5 --proxy 127.0.0.1:10808 %h %p
 ```
 
 {{% /tab %}}
@@ -127,6 +149,12 @@ ssh -o "ProxyCommand ncat --proxy-type socks5 --proxy 127.0.0.1:10808 %h %p" -o 
 {{% /tab %}}
 
 {{% /tabs %}}
+
+> 注：
+>
+> SSH 客户端从上到下逐行读取配置文件，并根据定义的 Host 条件进行匹配
+>
+> 特定的主机匹配应在文件开头给出，匹配条件越宽松越靠后
 
 ## SSH ProxyCommand 简单介绍
 
