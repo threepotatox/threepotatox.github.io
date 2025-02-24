@@ -20,7 +20,7 @@ noClasses = false
 # [[menu.before]]
 [[menu.after]]
 name = "📁 | Downloads"
-url = "https://github.com/threepotatox/threepotatox.github.io/downloads"
+url = "https://github.com/threepotatox/threepotatox.github.io/tree/main/downloads"
 weight = 9
 
 [[menu.after]]
