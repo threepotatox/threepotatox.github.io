@@ -1,0 +1,68 @@
+// www.你的域名：替换为自己的域名
+// your_uuid：替换为自己的 uuid
+// your_path：替换成自己的自定义路径
+// 标准 json 不支持注释，使用时可删除前 4 行
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "output": "",
+    "timestamp": true
+  },
+  "inbounds": [
+    {
+      "tag": "mixed-in",
+      "type": "mixed",
+      "listen": "127.0.0.1",
+      "listen_port": 1080,
+      "set_system_proxy": false
+    },
+    {
+      "tag": "ssh-direct-in",
+      "type": "direct",
+      "listen": "127.0.0.1",
+      "listen_port": 29503,
+      "network": [
+        "udp",
+        "tcp"
+      ],
+      "override_address": "127.0.0.1",
+      "override_port": 29503
+    },
+    {
+      "tag": "ssh-direct-in",
+      "type": "direct",
+      "listen": "127.0.0.1",
+      "listen_port": 8080,
+      "network": [
+        "udp",
+        "tcp"
+      ],
+      "override_address": "127.0.0.1",
+      "override_port": 8080
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "vmess",
+      "server": "www.你的域名",
+      "server_port": 443,
+      "uuid": "your_uuid",
+      "security": "aes-128-gcm",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "www.你的域名",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "packet_encoding": "packetaddr",
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/your_path"
+      }
+    }
+  ]
+}

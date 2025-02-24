@@ -1,0 +1,12 @@
+server: example.com:443 # 替换为自己的域名
+auth: 'your_password' # 替换成自己的密码
+socks5:
+  listen: 127.0.0.1:1080
+http:
+  listen: 127.0.0.1:1081 # 或 1080 #（从 2.4.1 版本开始，Hysteria 客户端支持单端口同时支持 SOCKS5 和 HTTP 代理）
+tcpForwarding: #本地转发
+  - listen: 127.0.0.1:29503
+    remote: 127.0.0.1:29503
+  - listen: 127.0.0.1:8080
+    remote: 127.0.0.1:8080
+

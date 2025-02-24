@@ -1,0 +1,27 @@
+# listen: :443 
+tls:
+  cert: /etc/hysteria/certs/fullchain.cer # 替换成自己的证书，注意使用 fullchain.cer 证书
+  key: /etc/hysteria/certs/example.com.key # 替换成自己的密钥
+auth:
+  type: password
+  password: 'your_password' # 替换成自己的密码
+masquerade:
+  type: proxy
+  proxy:
+    url: https://www.bing.com/
+    rewriteHost: true
+sniff:
+  enable: true
+  timeout: 2s
+  rewriteDomain: false
+  tcpPorts: 80,443,8000-9000
+  udpPorts: all
+acl:
+  inline:
+    - direct(127.0.0.1)
+    - warp(all)
+outbounds:
+  - name: warp
+    type: socks5
+    socks5:
+      addr: 127.0.0.1:1080

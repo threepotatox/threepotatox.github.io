@@ -1,0 +1,57 @@
+// your_uuid：替换为自己的 uuid
+// your_path：替换成自己的自定义路径
+// 标准 json 不支持注释，使用时可删除前 3 行
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "output": "",
+    "timestamp": true
+  },
+  "inbounds": [
+    {
+      "type": "vmess",
+      "listen": "127.0.0.1",
+      "listen_port": 34512,
+      "users": [
+        {
+          "uuid": "your_uuid",
+          "alterId": 0
+        }
+      ],
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/your_path"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "warp-out",
+      "type": "socks",
+      "server": "127.0.0.1",
+      "server_port": 1080,
+      "version": "5",
+      "network": [
+        "tcp",
+        "udp"
+      ],
+      "udp_over_tcp": false
+    },
+    {
+      "tag": "direct",
+      "type": "direct"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "ip_cidr": [
+          "127.0.0.1/32"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
