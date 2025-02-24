@@ -114,8 +114,16 @@ Zero Trust 面板 -> 网络 -> Tunnels -> 创建隧道 -> 选择 Cloudflared
 
 ### 2. 复制 cloudflared 安装命令
 
-选择 Docker 安装方式，复制页面中给的安装命令，主要是 token
-- 可用下面示例脚本，把参数 token 换成自己复制的
+选择 Docker 安装方式，复制页面中给的安装命令，主要是安装命令中的 **token**
+
+![Install cloudflared1](install-cloudflared1.png "Install cloudflared1")
+
+### 3. VPS 安装 cloudflared
+
+登录到 VPS 服务器，用 docker 安装 cloudflared。
+
+- 可用下面示例安装脚本，添加了容器启动参数
+- 要把示例脚本中 **your_token_string** 换成自己上一步中复制的 **token**
 
 {{% tabs %}}
 
@@ -161,11 +169,7 @@ docker.io/cloudflare/cloudflared:latest tunnel --no-autoupdate --protocol http2 
 
 {{% /tabs %}}
 
-![Install cloudflared1](install-cloudflared1.png "Install cloudflared1")
-
-### 3. VPS 安装 cloudflared
-
-登录到 VPS 服务器，可将示例命令保存成脚本文件 `cloudflared-start-docker.sh`
+可将示例命令保存成脚本文件 `cloudflared-start-docker.sh`
 
 运行脚本命令：
 
@@ -176,6 +180,8 @@ bash cloudflared-start-docker.sh
 容器启动成功即安装成功。
 
 ### 4. 添加 Tunnel 公共主机名
+
+返回 Cloudflare 管理页面。
 
 若没有退出创建隧道页面，点击下一步，添加公共主机名
 
