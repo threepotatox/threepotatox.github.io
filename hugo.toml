@@ -33,6 +33,11 @@ name = "🔗 | Hugo-Book"
 url = "https://themes.gohugo.io/themes/hugo-book/"
 weight = 20
 
+[[menu.after]]
+name = "✨ | Hugo-Book 主题定制"
+url = "/theme-customization/"
+weight = 21
+
 [params]
 # (Optional, default light) Sets color theme: light, dark or auto.
 # Theme 'auto' switches between dark and light modes based on browser/os preferences
